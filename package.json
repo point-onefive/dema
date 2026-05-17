@@ -1,0 +1,13 @@
+{
+  "name": "dema",
+  "version": "0.0.1",
+  "description": "Dema — digital executor platform. Securely organize, share, and pass on the digital pieces of life that matter most.",
+  "scripts": {
+    "dev": "serve webflow -l 4321 --no-port-switching --no-clipboard",
+    "start": "serve webflow -l 4321 --no-port-switching --no-clipboard"
+  },
+  "private": true,
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
