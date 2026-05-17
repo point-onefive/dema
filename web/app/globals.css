@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DEMA — DESIGN SYSTEM
+   One brand color, one neutral ramp, one type pair.
+   Premium = restraint. Nothing here exists "just to look nice."
+   ============================================================ */
+
+@theme {
+  /* Surfaces & backgrounds */
+  --color-cream: #faf8f3;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f1ea;
+  --color-surface-sunken: #efece4;
+
+  /* Borders */
+  --color-line: #e8e4d9;
+  --color-line-strong: #d4cebf;
+
+  /* Foreground / text */
+  --color-ink: #14130f;
+  --color-ink-2: #2c2a24;
+  --color-ink-3: #5c5a52;
+  --color-ink-4: #8a877d;
+  --color-ink-5: #b6b3a8;
+
+  /* Brand — single forest green, sparingly used */
+  --color-brand: #2f4f46;
+  --color-brand-hover: #243b35;
+  --color-brand-soft: #ecf2ef;
+  --color-brand-line: rgba(47, 79, 70, 0.14);
+
+  /* Service / mockup accent colors (only for product UI mockups) */
+  --color-svc-mail: #ea4335;
+  --color-svc-bank: #1a47b8;
+  --color-svc-stream: #e50914;
+  --color-svc-cloud: #3493fa;
+  --color-svc-storage: #0061ff;
+  --color-svc-drive-yellow: #fbbc05;
+  --color-svc-drive-green: #34a853;
+  --color-svc-drive-blue: #4285f4;
+
+  /* Typography */
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
+
+  /* Shadows — extremely subtle. Most surfaces use only a hairline border. */
+  --shadow-xs: 0 1px 2px rgba(20, 19, 15, 0.04);
+  --shadow-sm: 0 1px 2px rgba(20, 19, 15, 0.04), 0 2px 6px rgba(20, 19, 15, 0.04);
+  --shadow-md: 0 2px 4px rgba(20, 19, 15, 0.04),
+    0 8px 24px rgba(20, 19, 15, 0.06);
+  --shadow-lg: 0 4px 8px rgba(20, 19, 15, 0.04),
+    0 24px 48px -12px rgba(20, 19, 15, 0.1);
+}
+
+/* Base reset / page chrome */
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type uses serif and tightens letter-spacing */
+.font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+/* Eyebrow label used on every section ("STEP 01", "HOW IT WORKS", etc.) */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-4);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-brand);
+  color: white;
+}
+
+/* Smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}
