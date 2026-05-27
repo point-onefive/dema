@@ -16,15 +16,14 @@ const groups: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Company",
     links: [
       { label: "About", href: "#" },
-      { label: "Press", href: "#" },
       { label: "Contact", href: "#" },
     ],
   },
   {
     title: "Trust",
     links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "Privacy policy", href: "#" },
+      { label: "Terms of service", href: "#" },
       { label: "Security center", href: "#security" },
     ],
   },
@@ -52,7 +51,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[14px] text-[color:var(--color-ink-2)] hover:text-[color:var(--color-ink)]"
+                      className="text-[14px] text-[color:var(--color-ink-2)] hover:text-[color:var(--color-ink)] transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -65,14 +64,11 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-3 border-t border-[color:var(--color-line)] py-6 text-[12.5px] text-[color:var(--color-ink-4)] sm:flex-row sm:items-center">
           <div>© {new Date().getFullYear()} Dema. All rights reserved.</div>
           <div className="flex items-center gap-5">
-            <Link href="#" className="hover:text-[color:var(--color-ink-2)]">
+            <Link href="#" className="hover:text-[color:var(--color-ink-2)] transition-colors">
               Privacy
             </Link>
-            <Link href="#" className="hover:text-[color:var(--color-ink-2)]">
+            <Link href="#" className="hover:text-[color:var(--color-ink-2)] transition-colors">
               Terms
-            </Link>
-            <Link href="#" className="hover:text-[color:var(--color-ink-2)]">
-              Cookies
             </Link>
           </div>
         </div>

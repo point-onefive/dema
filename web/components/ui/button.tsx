@@ -8,7 +8,7 @@ const variantStyles: Record<Variant, string> = {
   primary:
     "bg-[color:var(--color-brand)] text-white hover:bg-[color:var(--color-brand-hover)] border border-transparent",
   secondary:
-    "bg-[color:var(--color-surface)] text-[color:var(--color-ink)] border border-[color:var(--color-line)] hover:border-[color:var(--color-line-strong)] hover:bg-[color:var(--color-surface)]",
+    "bg-[color:var(--color-surface)] text-[color:var(--color-ink)] border border-[color:var(--color-line)] hover:border-[color:var(--color-line-strong)]",
   ghost:
     "bg-transparent text-[color:var(--color-ink-2)] border border-transparent hover:text-[color:var(--color-ink)]",
 };

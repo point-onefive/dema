@@ -42,7 +42,7 @@ export function Avatar({
         dim,
         c.bg,
         c.fg,
-        className,
+        className
       )}
       aria-hidden
     >

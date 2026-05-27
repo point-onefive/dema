@@ -1,12 +1,6 @@
 import { cn } from "@/lib/cn";
 
-type ServiceKey =
-  | "mail"
-  | "bank"
-  | "stream"
-  | "cloud"
-  | "storage"
-  | "drive";
+type ServiceKey = "mail" | "bank" | "stream" | "cloud" | "storage" | "drive";
 
 const tileStyle: Record<ServiceKey, { bg: string; fg: string; letter: string }> = {
   mail: { bg: "bg-white", fg: "text-[color:var(--color-svc-mail)]", letter: "M" },
@@ -35,7 +29,7 @@ export function ServiceTile({
         dim,
         s.bg,
         s.fg,
-        className,
+        className
       )}
       aria-hidden
     >
