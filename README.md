@@ -1,72 +1,59 @@
 # Dema
 
-A digital executor platform. When someone passes away or becomes incapacitated,
-their family or chosen executor can securely access and manage the parts of
-their digital life they were given permission to handle — subscriptions,
-important documents, photos and memories, financial accounts, passwords, and
-more.
-
-The whole idea is to organize someone's digital life so loved ones aren't left
-scrambling trying to figure out what exists, what matters, and what needs
-attention.
+A digital executor platform. Securely organize, share, and pass on the digital pieces of life that matter most.
 
 ---
 
-## Status
+## For Taina - start here
 
-Foundation only. This repo currently hosts the **landing page design** as a
-static Webflow export under `webflow/`. No backend, no auth, no product
-surfaces yet. The Webflow files are treated as the visual source of truth while
-we decide what to port into a proper codebase.
+Read **[GET-STARTED.md](./GET-STARTED.md)** first. It's the complete, non-technical handoff guide. Everything you need to take this site live, edit it yourself, and run it day-to-day is in there.
 
-## Quick start
+---
 
-Clone, install, and run the landing page locally:
+## Project structure
+
+```
+dema/
+├── web/                ← The Next.js website (this is what deploys)
+├── archive/            ← Original Webflow export and early Next.js build (reference only)
+├── GET-STARTED.md      ← Start here. Complete handoff guide.
+├── SETUP.md            ← Older shorter setup guide (superseded by GET-STARTED.md)
+├── QUESTIONNAIRE.md    ← Personal-info checklist
+└── README.md           ← You are here
+```
+
+## Quick reference (technical)
+
+Local development:
 
 ```bash
-git clone https://github.com/point-onefive/dema.git
-cd dema
+cd web
+cp .env.example .env.local   # fill in your Resend API key
 npm install
 npm run dev
 ```
 
-Then open [http://localhost:4321](http://localhost:4321).
+Open [http://localhost:3000](http://localhost:3000).
 
-You should see the Dema landing page (hero → "How it works" → features →
-security → pricing → FAQ → footer). Use this to evaluate the aesthetic and
-flag what feels right vs. what needs to change.
+Production build:
 
-> Requires Node.js 18+ and npm. Nothing else.
-
-## Repo layout
-
-```text
-dema/
-├── webflow/                ← current landing page (Webflow HTML export)
-│   ├── index.html
-│   ├── css/
-│   ├── js/
-│   └── images/
-├── package.json            ← `npm run dev` serves webflow/ on :4321
-├── .gitignore
-└── README.md
+```bash
+cd web
+npm run build
+npm run start
 ```
 
-The `webflow/` folder is the raw export from Webflow with light hand-edits
-(forest-green color overrides, refined "How it works" cards). Treat it as
-reference material — anything new should eventually move into a proper
-component-based codebase (Next.js + Tailwind is the likely target).
+## Tech stack
 
-## Roadmap
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- [React 19](https://react.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/) for animation
+- [Resend](https://resend.com) for transactional email
+- [Vercel](https://vercel.com) for hosting
 
-1. **Foundation** — repo, hosting, design review ← *we are here*
-2. **Port the landing page** to Next.js + Tailwind so spacing, type, and color
-   are governed by a real design system rather than hand-edited Webflow CSS
-3. **Build the product surfaces**: executor onboarding, permissions/access
-   system, vault organization
-4. **Ship** — deploy, domain, analytics, the rest
+## Repository
 
-## Contributing / feedback
-
-Open an issue or comment in a PR. For visual feedback while reviewing locally,
-screenshots of the section + suggested change are perfect.
+- GitHub: [`point-onefive/dema`](https://github.com/point-onefive/dema)
+- Deploy: connect to Vercel with **Root Directory** set to `web`
+- Required environment variables on Vercel: `RESEND_API_KEY`, `NOTIFY_EMAIL`, `FROM_EMAIL`
