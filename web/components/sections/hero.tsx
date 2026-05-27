@@ -1,25 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionBadge } from "@/components/ui/eyebrow";
 import { WaitlistForm } from "@/components/ui/waitlist-form";
-import { ShieldCheck, Lock } from "lucide-react";
+import { ShieldCheck, Lock, Image as ImageIcon, Repeat, Landmark, KeyRound, FileText } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+const permissionRows = [
+  { icon: ImageIcon, label: "Photos & memories", level: "View & download", on: true },
+  { icon: Repeat, label: "Subscriptions", level: "View & cancel", on: true },
+  { icon: Landmark, label: "Financial accounts", level: "No access", on: false },
+  { icon: KeyRound, label: "Passwords", level: "No access", on: false },
+  { icon: FileText, label: "Important documents", level: "View only", on: true },
+];
+
+const vaultItems = [
+  { color: "#ea4335", letter: "M", label: "Gmail", desc: "2 accounts" },
+  { color: "#1a47b8", letter: "C", label: "Chase Bank", desc: "Checking & savings" },
+  { color: "#e50914", letter: "N", label: "Netflix", desc: "Monthly subscription" },
+  { color: "#3493fa", letter: "i", label: "iCloud Photos", desc: "14,200 photos" },
+  { color: "#0061ff", letter: "D", label: "Dropbox", desc: "Family documents" },
+];
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28">
-      {/* Soft background gradient */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-gradient-to-b from-[color:var(--color-brand-soft)]/60 to-transparent"
       />
 
       <Container>
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
 
           {/* Left — copy */}
           <div className="max-w-[600px]">
@@ -82,14 +96,14 @@ export function Hero() {
             </motion.ul>
           </div>
 
-          {/* Right — visual */}
+          {/* Right — product UI mockup */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease, delay: 0.12 }}
             className="relative"
           >
-            <HeroVisual />
+            <HeroProductCard />
           </motion.div>
         </div>
       </Container>
@@ -97,101 +111,90 @@ export function Hero() {
   );
 }
 
-function HeroVisual() {
-  const services = [
-    { color: "#ea4335", letter: "M", label: "Gmail", desc: "2 accounts" },
-    { color: "#1a47b8", letter: "C", label: "Chase Bank", desc: "Checking & savings" },
-    { color: "#e50914", letter: "N", label: "Netflix", desc: "Monthly subscription" },
-    { color: "#3493fa", letter: "i", label: "iCloud Photos", desc: "14,200 photos" },
-    { color: "#0061ff", letter: "D", label: "Dropbox", desc: "Family documents" },
-    { color: "#34a853", letter: "G", label: "Google Drive", desc: "Shared folders" },
-  ];
-
+function TogglePill({ on }: { on: boolean }) {
   return (
-    <div className="relative">
-      {/* Main photo */}
-      <div className="overflow-hidden rounded-3xl border border-[color:var(--color-line)] shadow-[var(--shadow-lg)]">
-        <div className="relative aspect-[4/5]">
-          <Image
-            src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=85&fit=crop"
-            alt="Family together"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/20 via-transparent to-transparent" />
-        </div>
-      </div>
+    <span
+      className={
+        "relative inline-flex h-[20px] w-[36px] shrink-0 rounded-full " +
+        (on ? "bg-[color:var(--color-brand)]" : "bg-[color:var(--color-surface-sunken)]")
+      }
+      aria-hidden
+    >
+      <span
+        className={
+          "absolute top-[2px] h-[16px] w-[16px] rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all " +
+          (on ? "left-[18px]" : "left-[2px]")
+        }
+      />
+    </span>
+  );
+}
 
-      {/* Floating vault card — top left */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease, delay: 0.5 }}
-        className="absolute -top-4 -left-4 w-[260px] rounded-2xl border border-[color:var(--color-line)] bg-white/95 p-3 shadow-[var(--shadow-lg)] backdrop-blur-sm sm:-top-6 sm:-left-8 sm:w-[290px]"
-      >
-        <div className="mb-2 flex items-center justify-between px-1">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
+function HeroProductCard() {
+  return (
+    <div className="space-y-3">
+      {/* Vault overview card */}
+      <div className="rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-surface)] shadow-[var(--shadow-md)]">
+        <div className="flex items-center justify-between border-b border-[color:var(--color-line)] px-4 py-3">
+          <span className="text-[11.5px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
             Digital vault
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-brand-soft)] px-2 py-0.5 text-[10.5px] font-semibold text-[color:var(--color-brand)]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--color-brand-soft)] px-2.5 py-1 text-[10.5px] font-semibold text-[color:var(--color-brand)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-brand)]" />
             Active
           </span>
         </div>
-        <ul className="space-y-1">
-          {services.slice(0, 4).map((s) => (
-            <li key={s.label} className="flex items-center gap-2.5 rounded-xl px-1 py-1.5">
+        <ul className="divide-y divide-[color:var(--color-line)]">
+          {vaultItems.map((item) => (
+            <li key={item.label} className="flex items-center gap-3 px-4 py-2.5">
               <span
                 className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[12px] font-bold text-white"
-                style={{ backgroundColor: s.color }}
+                style={{ backgroundColor: item.color }}
               >
-                {s.letter}
+                {item.letter}
               </span>
-              <div className="min-w-0">
-                <div className="text-[12.5px] font-medium text-[color:var(--color-ink)]">{s.label}</div>
-                <div className="text-[11px] text-[color:var(--color-ink-4)]">{s.desc}</div>
+              <div className="min-w-0 flex-1">
+                <div className="text-[13px] font-medium text-[color:var(--color-ink)]">{item.label}</div>
               </div>
+              <div className="text-[11.5px] text-[color:var(--color-ink-4)]">{item.desc}</div>
             </li>
           ))}
         </ul>
-      </motion.div>
+      </div>
 
-      {/* Floating permissions card — bottom right */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease, delay: 0.65 }}
-        className="absolute -bottom-6 -right-4 w-[220px] rounded-2xl border border-[color:var(--color-line)] bg-white/95 p-3.5 shadow-[var(--shadow-lg)] backdrop-blur-sm sm:-bottom-8 sm:-right-6"
-      >
-        <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
-          Executor access
-        </div>
-        <div className="flex items-center gap-2.5 rounded-xl bg-[color:var(--color-surface-muted)] px-2.5 py-2">
-          <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#D6E0DC] text-[12px] font-semibold text-[#1F3A33]">
-            JA
-          </div>
-          <div>
-            <div className="text-[12.5px] font-medium text-[color:var(--color-ink)]">John Anderson</div>
-            <div className="text-[11px] text-[color:var(--color-brand)]">Access granted</div>
-          </div>
-        </div>
-        <div className="mt-2 space-y-1.5 px-0.5">
-          {[
-            { label: "Photos", on: true },
-            { label: "Subscriptions", on: true },
-            { label: "Banking", on: false },
-          ].map((r) => (
-            <div key={r.label} className="flex items-center justify-between">
-              <span className="text-[11.5px] text-[color:var(--color-ink-3)]">{r.label}</span>
-              <span className={`text-[11px] font-medium ${r.on ? "text-[color:var(--color-brand)]" : "text-[color:var(--color-ink-5)]"}`}>
-                {r.on ? "Shared" : "Private"}
-              </span>
+      {/* Permissions card */}
+      <div className="rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-surface)] shadow-[var(--shadow-md)]">
+        <div className="flex items-center justify-between border-b border-[color:var(--color-line)] px-4 py-3">
+          <span className="text-[11.5px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
+            Executor permissions
+          </span>
+          <div className="flex items-center gap-2">
+            <div className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#D6E0DC] text-[9px] font-semibold text-[#1F3A33]">
+              JA
             </div>
-          ))}
+            <span className="text-[11.5px] font-medium text-[color:var(--color-ink-2)]">John Anderson</span>
+          </div>
         </div>
-      </motion.div>
+        <ul className="divide-y divide-[color:var(--color-line)]">
+          {permissionRows.map((row) => (
+            <li key={row.label} className="grid grid-cols-[20px_1fr_44px_110px] items-center gap-3 px-4 py-2.5">
+              <row.icon className="h-4 w-4 text-[color:var(--color-ink-4)]" />
+              <span className="text-[13px] font-medium text-[color:var(--color-ink)]">{row.label}</span>
+              <TogglePill on={row.on} />
+              <span
+                className={
+                  "rounded-full px-2 py-0.5 text-center text-[11px] font-medium " +
+                  (row.on
+                    ? "bg-[color:var(--color-surface-muted)] text-[color:var(--color-ink-3)]"
+                    : "text-[color:var(--color-ink-5)]")
+                }
+              >
+                {row.level}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

@@ -28,7 +28,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-[600px] text-center">
           <Reveal>

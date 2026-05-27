@@ -12,18 +12,32 @@ const stats = [
   {
     figure: "66%",
     suffix: null,
-    label: "Of adults have no plan for their digital assets, leaving families completely in the dark",
+    label: "Of adults have no documented plan for their digital assets, leaving families in the dark",
   },
   {
-    figure: "$B",
+    figure: "100+",
     suffix: null,
-    label: "In digital accounts, crypto, credits, and subscriptions go unclaimed every year",
+    label: "Online accounts the average person holds today — most families have no record of any of them",
   },
+];
+
+const withoutDema = [
+  "Subscriptions still charging for months after",
+  "Passwords and accounts lost forever",
+  "14,200 photos no one can access",
+  "No one knows which accounts even exist",
+];
+
+const withDema = [
+  "Every account documented and organized by category",
+  "Subscriptions cancelled with one executor approval",
+  "Photos accessible to the right people, nothing more",
+  "A clear, verified process from day one",
 ];
 
 export function Problem() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-20 sm:py-24">
       <Container>
         {/* Header */}
         <div className="mx-auto max-w-[700px] text-center">
@@ -39,21 +53,20 @@ export function Problem() {
             <p className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.65] text-[color:var(--color-ink-3)]">
               When someone passes or becomes incapacitated, their family faces
               weeks of confusion. Accounts no one knew existed. Subscriptions
-              still charging. Memories locked behind passwords that went with
-              them.
+              still charging. Memories locked behind passwords that went with them.
             </p>
           </Reveal>
         </div>
 
         {/* Stats strip */}
-        <RevealGroup className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3" stagger={0.1}>
+        <RevealGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3" stagger={0.1}>
           {stats.map((s) => (
             <RevealItem key={s.figure}>
-              <div className="rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-surface)] px-7 py-8">
-                <div className="font-display text-[56px] leading-none tracking-tight text-[color:var(--color-brand)] sm:text-[64px]">
+              <div className="rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-surface)] px-7 py-7">
+                <div className="whitespace-nowrap font-display text-[56px] leading-none tracking-tight text-[color:var(--color-brand)] sm:text-[60px]">
                   {s.figure}
                   {s.suffix && (
-                    <span className="ml-1 text-[32px] text-[color:var(--color-brand)]/60 sm:text-[36px]">
+                    <span className="ml-1 text-[30px] text-[color:var(--color-brand)]/60">
                       {s.suffix}
                     </span>
                   )}
@@ -66,92 +79,60 @@ export function Problem() {
           ))}
         </RevealGroup>
 
-        {/* Photo + overlay */}
-        <div className="mt-14 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+        {/* Photo + before/after comparison */}
+        <div className="mt-12 grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+          {/* Clean photo, no overlays */}
           <Reveal>
-            <div className="relative">
-              <div className="overflow-hidden rounded-3xl border border-[color:var(--color-line)] shadow-[var(--shadow-md)]">
-                <div className="relative aspect-[3/2]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=900&q=85&fit=crop"
-                    alt="Family sitting together, thinking about the future"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[color:var(--color-ink)]/30 via-transparent to-transparent" />
-                </div>
+            <div className="overflow-hidden rounded-3xl border border-[color:var(--color-line)] shadow-[var(--shadow-md)]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=900&q=85&fit=crop"
+                  alt="Family sitting together"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
+                />
               </div>
+            </div>
+          </Reveal>
 
-              {/* Chaos card overlay */}
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-red-100 bg-white/92 p-4 shadow-[var(--shadow-md)] backdrop-blur-sm sm:left-6 sm:right-auto sm:w-[280px]">
-                <p className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-red-400">
+          {/* Stacked comparison — no overlapping */}
+          <div className="flex flex-col gap-5">
+            <Reveal delay={0.08}>
+              <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-red-400">
                   Without Dema
                 </p>
-                <ul className="space-y-2">
-                  {[
-                    "Subscriptions charging for months after",
-                    "Passwords and accounts lost forever",
-                    "14,200 photos no one can access",
-                    "No one knows what accounts exist",
-                  ].map((item) => (
+                <ul className="space-y-2.5">
+                  {withoutDema.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2.5 text-[12.5px] leading-[1.5] text-[color:var(--color-ink-2)]"
+                      className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-[color:var(--color-ink-2)]"
                     >
-                      <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-red-100">
-                        <span className="h-1 w-1 rounded-full bg-red-400" />
+                      <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-red-200">
+                        <span className="h-1 w-1 rounded-full bg-red-500" />
                       </span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <div>
-            <Reveal>
-              <h3 className="font-display text-[30px] leading-[1.1] tracking-[-0.015em] text-[color:var(--color-ink)] sm:text-[38px]">
-                Your digital life doesn&apos;t disappear. It just becomes someone
-                else&apos;s problem.
-              </h3>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="mt-5 text-[16px] leading-[1.7] text-[color:var(--color-ink-3)]">
-                The average person today has over 100 online accounts. Banking.
-                Cloud storage. Streaming. Social media. Work tools. Photos spread
-                across three platforms. Most families are completely unprepared to
-                deal with any of it.
-              </p>
-            </Reveal>
             <Reveal delay={0.15}>
-              <p className="mt-4 text-[16px] leading-[1.7] text-[color:var(--color-ink-3)]">
-                Dema was built so the people you love are never left scrambling.
-                Your executor gets a clear map: what exists, what matters, and
-                exactly what to do with it.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.22}>
-              <div className="mt-8 rounded-2xl border border-[color:var(--color-brand-line)] bg-[color:var(--color-brand-soft)] p-5">
-                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-brand)]">
+              <div className="rounded-2xl border-2 border-[color:var(--color-brand-line)] bg-[color:var(--color-brand-soft)] p-5">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-brand)]">
                   With Dema
-                </div>
+                </p>
                 <ul className="space-y-2.5">
-                  {[
-                    "Every account documented, organized by category",
-                    "Subscriptions cancelled automatically on executor approval",
-                    "Photos accessible to the right people, nothing more",
-                    "A clear, verified process from day one",
-                  ].map((item) => (
+                  {withDema.map((item) => (
                     <li
                       key={item}
                       className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-[color:var(--color-ink-2)]"
                     >
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand)]">
-                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
-                          <path d="M1 3l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand)]">
+                        <svg width="7" height="6" viewBox="0 0 7 6" fill="none">
+                          <path d="M1 3l1.5 1.5L6 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
                       {item}
@@ -159,6 +140,15 @@ export function Problem() {
                   ))}
                 </ul>
               </div>
+            </Reveal>
+
+            <Reveal delay={0.22}>
+              <p className="px-1 text-[14px] leading-[1.65] text-[color:var(--color-ink-3)]">
+                The average person today has over 100 online accounts. Most
+                families are completely unprepared to deal with any of them.
+                Dema gives your executor a clear map: what exists, what matters,
+                and exactly what to do with it.
+              </p>
             </Reveal>
           </div>
         </div>

@@ -48,7 +48,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 sm:py-32">
+    <section id="faq" className="py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-[800px]">
           <div className="text-center">

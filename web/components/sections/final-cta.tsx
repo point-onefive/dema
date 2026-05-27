@@ -5,7 +5,7 @@ import { WaitlistForm } from "@/components/ui/waitlist-form";
 
 export function FinalCTA() {
   return (
-    <section id="cta" className="py-20 sm:py-28">
+    <section id="cta" className="py-20 sm:py-24">
       <Container>
         <Reveal>
           <div className="relative overflow-hidden rounded-[32px] bg-[color:var(--color-ink)]">

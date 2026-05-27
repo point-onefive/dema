@@ -28,9 +28,7 @@ function Toggle({ on }: { on: boolean }) {
     <span
       className={
         "relative inline-flex h-[22px] w-[38px] shrink-0 rounded-full transition-colors " +
-        (on
-          ? "bg-[color:var(--color-brand)]"
-          : "bg-[color:var(--color-surface-sunken)]")
+        (on ? "bg-[color:var(--color-brand)]" : "bg-[color:var(--color-surface-sunken)]")
       }
       aria-hidden
     >
@@ -51,7 +49,8 @@ export function PermissionsMockup() {
         {rows.map((r) => (
           <li
             key={r.label}
-            className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-3 px-3 py-3.5"
+            className="grid items-center gap-3 px-3 py-3.5"
+            style={{ gridTemplateColumns: "32px 1fr 46px 130px" }}
           >
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--color-surface-muted)] text-[color:var(--color-ink-3)]">
               <r.icon className="h-4 w-4" />
@@ -62,7 +61,7 @@ export function PermissionsMockup() {
             <Toggle on={r.on} />
             <span
               className={
-                "ml-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11.5px] font-medium " +
+                "inline-flex items-center justify-center gap-1 rounded-full border px-2.5 py-1 text-[11.5px] font-medium " +
                 (r.on
                   ? "border-[color:var(--color-line)] bg-[color:var(--color-surface)] text-[color:var(--color-ink-2)]"
                   : "border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-ink-4)]")

@@ -40,7 +40,7 @@ const pillars: Pillar[] = [
 
 export function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32">
+    <section id="features" className="py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-[680px] text-center">
           <Reveal>

@@ -17,7 +17,7 @@ const inclusions = [
 
 export function PricingTeaser() {
   return (
-    <section id="pricing" className="py-24 sm:py-32">
+    <section id="pricing" className="py-20 sm:py-24">
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>

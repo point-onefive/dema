@@ -52,7 +52,7 @@ const steps: Step[] = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="py-24 sm:py-32">
+    <section id="how" className="py-20 sm:py-24">
       <Container>
         <div className="mx-auto max-w-[680px] text-center">
           <Reveal>
