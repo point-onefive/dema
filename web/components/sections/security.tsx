@@ -37,7 +37,7 @@ export function Security() {
   return (
     <section id="security" className="bg-[#14130f] py-20 sm:py-24">
       <Container>
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           {/* Left */}
           <div>
             <Reveal>
