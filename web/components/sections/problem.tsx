@@ -17,7 +17,7 @@ const stats = [
   {
     figure: "100+",
     suffix: null,
-    label: "Online accounts the average person holds today — most families have no record of any of them",
+    label: "Online accounts the average person holds today - most families have no record of any of them",
   },
 ];
 
@@ -96,11 +96,11 @@ export function Problem() {
             </div>
           </Reveal>
 
-          {/* Stacked comparison — no overlapping */}
+          {/* Stacked comparison - no overlapping */}
           <div className="flex flex-col gap-5">
             <Reveal delay={0.08}>
-              <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-red-400">
+              <div className="rounded-2xl border border-[color:var(--color-line-strong)] bg-[color:var(--color-surface-sunken)] p-5">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-4)]">
                   Without Dema
                 </p>
                 <ul className="space-y-2.5">
@@ -109,8 +109,8 @@ export function Problem() {
                       key={item}
                       className="flex items-start gap-2.5 text-[13.5px] leading-[1.5] text-[color:var(--color-ink-2)]"
                     >
-                      <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-red-200">
-                        <span className="h-1 w-1 rounded-full bg-red-500" />
+                      <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] bg-[color:var(--color-surface-muted)]">
+                        <span className="h-1 w-1 rounded-full bg-[color:var(--color-ink-5)]" />
                       </span>
                       {item}
                     </li>
@@ -120,7 +120,7 @@ export function Problem() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="rounded-2xl border-2 border-[color:var(--color-brand-line)] bg-[color:var(--color-brand-soft)] p-5">
+              <div className="rounded-2xl border border-[color:var(--color-brand-line)] bg-[color:var(--color-brand-soft)] p-5">
                 <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-brand)]">
                   With Dema
                 </p>

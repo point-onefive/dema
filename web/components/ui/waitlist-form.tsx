@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type State = "idle" | "loading" | "success" | "error";
@@ -14,6 +14,7 @@ export function WaitlistForm({
   size?: "default" | "large";
   placeholder?: string;
 }) {
+  const inputId = useId();
   const [email, setEmail] = useState("");
   const [state, setState] = useState<State>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -66,13 +67,20 @@ export function WaitlistForm({
     <div className={cn("w-full", className)}>
       <form
         onSubmit={handleSubmit}
+        aria-label="Join the Dema early access list"
         className={cn(
-          "flex w-full items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-surface)] shadow-[var(--shadow-sm)]",
+          "flex w-full items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-surface)] shadow-[var(--shadow-sm)] transition-shadow focus-within:shadow-[var(--shadow-md)]",
           isLarge ? "p-1.5 sm:p-2" : "p-1"
         )}
       >
+        <label htmlFor={inputId} className="sr-only">
+          Your email address
+        </label>
         <input
+          id={inputId}
+          name="email"
           type="email"
+          autoComplete="email"
           required
           value={email}
           onChange={(e) => {
@@ -82,7 +90,7 @@ export function WaitlistForm({
           placeholder={placeholder}
           disabled={state === "loading"}
           className={cn(
-            "min-w-0 flex-1 bg-transparent outline-none placeholder:text-[color:var(--color-ink-5)] text-[color:var(--color-ink)]",
+            "min-w-0 flex-1 bg-transparent text-[color:var(--color-ink)] outline-none placeholder:text-[color:var(--color-ink-5)]",
             isLarge ? "px-4 text-[16px]" : "px-3 text-[14px]"
           )}
         />

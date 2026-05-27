@@ -62,12 +62,12 @@ export function PricingTeaser() {
                   <div className="text-[11.5px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-ink-4)]">
                     Dema &middot; Early access
                   </div>
-                  <div className="mt-3 flex items-baseline gap-2">
+                  <div className="mt-3 flex items-end gap-3">
                     <span className="font-display text-[64px] leading-none tracking-tight text-[color:var(--color-ink)]">
                       $0
                     </span>
-                    <div>
-                      <div className="text-[13px] font-medium text-[color:var(--color-ink-4)]">per month</div>
+                    <div className="mb-2">
+                      <div className="text-[13px] font-medium text-[color:var(--color-ink-4)]">/ month</div>
                       <div className="text-[13px] font-semibold text-[color:var(--color-brand)]">forever</div>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export function PricingTeaser() {
                 {inclusions.map((line) => (
                   <RevealItem key={line}>
                     <div className="flex items-start gap-3 text-[14.5px] text-[color:var(--color-ink-2)]">
-                      <span className="mt-0.5 inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand)]">
+                      <span className="mt-[3px] inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-[color:var(--color-brand)]">
                         <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
                       </span>
                       {line}

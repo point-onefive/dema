@@ -29,6 +29,10 @@ export async function POST(req: Request) {
 
   const from = process.env.FROM_EMAIL ?? "Dema <onboarding@resend.dev>";
   const notifyEmail = process.env.NOTIFY_EMAIL;
+  const timestamp = new Date().toLocaleString("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
 
   try {
     const { Resend } = await import("resend");
@@ -48,7 +52,7 @@ export async function POST(req: Request) {
             Early access members keep their plan free forever. We'll send you a note the moment your spot is ready.
           </p>
           <p style="font-size: 13px; color: #8a877d; margin: 0;">
-            Dema &mdash; a digital executor for the life you built.
+            Dema - a digital executor for the life you built.
           </p>
         </div>
       `,
@@ -58,10 +62,16 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from,
         to: notifyEmail,
-        subject: "New Dema waitlist signup",
+        subject: `New Dema waitlist signup: ${email}`,
         html: `
           <div style="font-family: ui-sans-serif, system-ui, sans-serif; color: #14130f; max-width: 480px; margin: 0 auto; padding: 32px 24px;">
-            <p style="font-size: 15px; margin: 0;">New waitlist signup: <strong>${email}</strong></p>
+            <div style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">New waitlist signup</div>
+            <p style="font-size: 15px; line-height: 1.6; color: #2c2a24; margin: 0 0 8px;">
+              <strong>${email}</strong>
+            </p>
+            <p style="font-size: 13px; color: #8a877d; margin: 0;">
+              ${timestamp}
+            </p>
           </div>
         `,
       });

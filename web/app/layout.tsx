@@ -19,20 +19,20 @@ const serif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL("https://dema.app"),
   title: {
-    default: "Dema — a digital executor for the life you built",
+    default: "Dema - a digital executor for the life you built",
     template: "%s · Dema",
   },
   description:
     "When something happens, your family shouldn't be left guessing. Dema organizes the digital pieces of life that matter and gives the right person the right access at the right time.",
   openGraph: {
-    title: "Dema — a digital executor for the life you built",
+    title: "Dema - a digital executor for the life you built",
     description:
       "Securely organize the digital pieces of your life so trusted loved ones have a guide when it matters most.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dema — a digital executor for the life you built",
+    title: "Dema - a digital executor for the life you built",
     description:
       "Securely organize the digital pieces of your life so trusted loved ones have a guide when it matters most.",
   },

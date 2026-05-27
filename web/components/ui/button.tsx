@@ -27,6 +27,7 @@ export function Button({
   size = "md",
   className,
   children,
+  onClick,
   ...rest
 }: {
   href?: string;
@@ -39,14 +40,18 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link
+        href={href}
+        className={classes}
+        onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={classes} {...rest}>
+    <button className={classes} onClick={onClick} {...rest}>
       {children}
     </button>
   );

@@ -1,4 +1,4 @@
-# Dema — Your Info Checklist
+# Dema - Your Info Checklist
 
 Fill this out before running the site. Some of these go into the actual page.
 Some go into Vercel as environment variables. The ones marked as **required** need to be done before the site works properly.
@@ -28,7 +28,7 @@ _Only needed if you want a phone number listed on the site_
 ## Branding
 
 **Your website domain** (optional)
-_Example: getdema.com or dema.co — needed for a custom domain on Vercel_
+_Example: getdema.com or dema.co - needed for a custom domain on Vercel_
 
 > [ fill in here ]
 
@@ -42,7 +42,7 @@ _List any you want linked in the footer (Instagram, Twitter/X, LinkedIn, etc.)_
 ## Email setup (required)
 
 **Resend API key**
-_Starts with `re_` — you get this from resend.com_
+_Starts with `re_` - you get this from resend.com_
 _Add as `RESEND_API_KEY` in Vercel_
 
 > [ fill in here ]
@@ -59,7 +59,7 @@ _Add as `FROM_EMAIL` in Vercel_
 ## Copy and content
 
 **Anything you want to change on the site?**
-_Write it out naturally — Tyler or your Cursor agent can make any edits_
+_Write it out naturally - Tyler or your Cursor agent can make any edits_
 
 > [ write any notes here ]
 

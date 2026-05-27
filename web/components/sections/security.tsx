@@ -89,7 +89,7 @@ export function Security() {
             </Reveal>
           </div>
 
-          {/* Right — security cards */}
+          {/* Right - security cards */}
           <RevealGroup className="grid grid-cols-1 gap-3 sm:grid-cols-2" stagger={0.08}>
             {items.map((item) => (
               <RevealItem key={item.title}>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DEMA — DESIGN SYSTEM
+   DEMA - DESIGN SYSTEM
    One brand color, one neutral ramp, one type pair.
    Premium = restraint.
    ============================================================ */
@@ -24,7 +24,7 @@
   --color-ink-4: #8a877d;
   --color-ink-5: #b6b3a8;
 
-  /* Brand — forest green */
+  /* Brand - forest green */
   --color-brand: #2f4f46;
   --color-brand-hover: #243b35;
   --color-brand-soft: #ecf2ef;
@@ -92,4 +92,37 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* When jumping to anchors, leave room under the sticky 64px nav */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+}
+
+/* Avoid horizontal overflow on small screens */
+body {
+  overflow-x: hidden;
+}
+
+/* Class used by nav to lock body scroll when mobile menu is open */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

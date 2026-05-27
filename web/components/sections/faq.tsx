@@ -28,7 +28,7 @@ const questions: Q[] = [
   },
   {
     q: "Who can access my vault, and when?",
-    a: "Only the people you explicitly name, and only with the permissions you grant them. Access requires a verified executor request — a multi-step identity check that is logged and auditable. Nothing in your vault opens automatically. You define both who and when.",
+    a: "Only the people you explicitly name, and only with the permissions you grant them. Access requires a verified executor request - a multi-step identity check that is logged and auditable. Nothing in your vault opens automatically. You define both who and when.",
   },
   {
     q: "How is my information protected?",

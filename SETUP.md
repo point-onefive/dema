@@ -1,4 +1,6 @@
-# Dema — Setup Guide
+# Dema - Setup Guide
+
+> **Note:** This document has been superseded by [GET-STARTED.md](./GET-STARTED.md), which is the master handoff guide. SETUP.md is kept as a shorter quick reference. For everything you need to go live, use GET-STARTED.md.
 
 Hey Taina! This guide walks you through everything you need to get your site live.
 Read through it top to bottom. It's written for someone with zero coding experience, so there are no steps skipped.
@@ -24,7 +26,7 @@ Start with Resend, then Vercel.
 
 ---
 
-## Part 1 — Set up Resend (email collection)
+## Part 1 - Set up Resend (email collection)
 
 Resend is the service that handles sending emails when someone joins your waitlist.
 It's free for your level of usage.
@@ -42,7 +44,7 @@ It's free for your level of usage.
 3. Name it "Dema production" or anything you like
 4. Set **Permission** to "Full access"
 5. Click **Add**
-6. Copy the key that starts with `re_` — you'll need it soon
+6. Copy the key that starts with `re_` - you'll need it soon
 
 > Important: save this key somewhere safe. You can only see it once. If you lose it, you can always create a new one.
 
@@ -50,13 +52,13 @@ It's free for your level of usage.
 
 For emails to send, Resend needs to know what email address they come from.
 
-The easiest option to start: use `onboarding@resend.dev` — this is Resend's default and works immediately without any setup.
+The easiest option to start: use `onboarding@resend.dev` - this is Resend's default and works immediately without any setup.
 
 Later, if you want emails to come from your own domain (like `hello@getdema.com`), you can add your domain in Resend under **Domains**. That part is optional for now.
 
 ---
 
-## Part 2 — Deploy to Vercel
+## Part 2 - Deploy to Vercel
 
 Vercel is the hosting platform. It takes your site and puts it on the internet for free.
 
@@ -91,7 +93,7 @@ If Tyler set it up for you already, skip this step.
    - Leave everything else as-is
 4. Click **Deploy**
 
-The first deploy will succeed but emails won't work yet — that's expected. You need to add your environment variables next.
+The first deploy will succeed but emails won't work yet - that's expected. You need to add your environment variables next.
 
 ### Step 5: Add your environment variables
 
@@ -130,7 +132,7 @@ You'll need to have Node.js installed. If you don't have it:
 
 Then:
 
-1. Open **Terminal** (search for it with Spotlight — cmd + space)
+1. Open **Terminal** (search for it with Spotlight - cmd + space)
 2. Type the following and press Enter each time:
 
 ```
@@ -146,7 +148,7 @@ npm install
 npm run dev
 ```
 
-5. Open your browser and go to `http://localhost:4321`
+5. Open your browser and go to `http://localhost:3000`
 
 You should see your site running locally.
 
