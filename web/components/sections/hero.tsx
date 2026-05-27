@@ -5,168 +5,193 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { SectionBadge } from "@/components/ui/eyebrow";
 import { WaitlistForm } from "@/components/ui/waitlist-form";
-import { ShieldCheck, Lock, Users } from "lucide-react";
-
-const trustItems = [
-  { icon: ShieldCheck, label: "End-to-end encrypted" },
-  { icon: Lock, label: "Zero-knowledge vault" },
-  { icon: Users, label: "Free for early access" },
-];
+import { ShieldCheck, Lock } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-14 pb-0 sm:pt-20">
-      {/* Subtle background wash */}
+    <section className="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28">
+      {/* Soft background gradient */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] bg-gradient-to-b from-[color:var(--color-brand-soft)]/50 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-gradient-to-b from-[color:var(--color-brand-soft)]/60 to-transparent"
       />
 
       <Container>
-        {/* Text block — centered */}
-        <div className="mx-auto max-w-[760px] text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-          >
-            <SectionBadge>Now in early access</SectionBadge>
-          </motion.div>
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.08 }}
-            className="mt-6 font-display text-[48px] leading-[1.03] tracking-[-0.015em] text-[color:var(--color-ink)] sm:text-[60px] lg:text-[72px]"
-          >
-            A digital executor for
-            <br className="hidden sm:block" /> the life you built.
-          </motion.h1>
+          {/* Left — copy */}
+          <div className="max-w-[600px]">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease }}
+            >
+              <SectionBadge>Now in early access</SectionBadge>
+            </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.16 }}
-            className="mx-auto mt-6 max-w-[560px] text-[17px] leading-[1.6] text-[color:var(--color-ink-3)] sm:text-[18px]"
-          >
-            When something happens, your family shouldn&apos;t have to figure it
-            out alone. Dema organizes everything so the right person has the
-            right access, exactly when it matters.
-          </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.07 }}
+              className="mt-6 font-display text-[46px] leading-[1.03] tracking-[-0.018em] text-[color:var(--color-ink)] sm:text-[56px] lg:text-[64px]"
+            >
+              Your digital life,
+              <br className="hidden sm:block" /> organized for the
+              <br className="hidden sm:block" /> people you love.
+            </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.24 }}
-            className="mx-auto mt-9 max-w-[440px]"
-          >
-            <WaitlistForm size="large" />
-          </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.15 }}
+              className="mt-6 max-w-[500px] text-[17px] leading-[1.65] text-[color:var(--color-ink-3)]"
+            >
+              Gmail. iCloud. Chase. Netflix. Dropbox. When something happens, your
+              family shouldn&apos;t be left guessing. Dema puts a trusted person in
+              control of exactly what they need, nothing more.
+            </motion.p>
 
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease, delay: 0.38 }}
-            className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-[12.5px] text-[color:var(--color-ink-4)]"
-          >
-            {trustItems.map(({ icon: Icon, label }) => (
-              <li key={label} className="inline-flex items-center gap-1.5">
-                <Icon className="h-3.5 w-3.5 text-[color:var(--color-brand)]" />
-                {label}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, ease, delay: 0.23 }}
+              className="mt-8 max-w-[440px]"
+            >
+              <WaitlistForm size="large" />
+              <p className="mt-3 pl-1 text-[12.5px] text-[color:var(--color-ink-5)]">
+                No credit card. Free for early-access members, forever.
+              </p>
+            </motion.div>
+
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease, delay: 0.36 }}
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[13px] text-[color:var(--color-ink-4)]"
+            >
+              <li className="inline-flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-[color:var(--color-brand)]" />
+                End-to-end encrypted vault
               </li>
-            ))}
-          </motion.ul>
-        </div>
-
-        {/* Hero image */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.3 }}
-          className="relative mx-auto mt-14 max-w-[960px]"
-        >
-          <div className="relative overflow-hidden rounded-t-[28px] border border-b-0 border-[color:var(--color-line)] shadow-[var(--shadow-lg)]">
-            {/* Browser chrome */}
-            <div className="flex items-center gap-2 border-b border-[color:var(--color-line)] bg-[color:var(--color-surface-muted)] px-4 py-3">
-              <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
-              <span className="h-3 w-3 rounded-full bg-[#FFBD2E]" />
-              <span className="h-3 w-3 rounded-full bg-[#28CA41]" />
-              <div className="mx-auto rounded-md bg-[color:var(--color-surface-sunken)] px-12 py-1.5 text-[11px] text-[color:var(--color-ink-4)]">
-                app.dema.co
-              </div>
-            </div>
-
-            <div className="relative aspect-[16/9] bg-[color:var(--color-cream)]">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=85&fit=crop"
-                alt="A family sitting together, planning for the future"
-                fill
-                sizes="960px"
-                className="object-cover opacity-25"
-                priority
-              />
-              {/* Overlay dashboard mockup */}
-              <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10">
-                <DashboardMockup />
-              </div>
-            </div>
+              <li className="inline-flex items-center gap-2">
+                <Lock className="h-4 w-4 shrink-0 text-[color:var(--color-brand)]" />
+                Zero-knowledge by design
+              </li>
+            </motion.ul>
           </div>
-        </motion.div>
+
+          {/* Right — visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, ease, delay: 0.12 }}
+            className="relative"
+          >
+            <HeroVisual />
+          </motion.div>
+        </div>
       </Container>
     </section>
   );
 }
 
-function DashboardMockup() {
-  const items = [
-    { color: "#ea4335", letter: "M", label: "Gmail", count: "3 accounts", pct: 80 },
-    { color: "#1a47b8", letter: "C", label: "Chase Bank", count: "2 accounts", pct: 65 },
-    { color: "#e50914", letter: "N", label: "Netflix", count: "1 subscription", pct: 90 },
-    { color: "#3493fa", letter: "i", label: "iCloud", count: "4,200 photos", pct: 55 },
-    { color: "#0061ff", letter: "D", label: "Dropbox", count: "14 GB", pct: 70 },
+function HeroVisual() {
+  const services = [
+    { color: "#ea4335", letter: "M", label: "Gmail", desc: "2 accounts" },
+    { color: "#1a47b8", letter: "C", label: "Chase Bank", desc: "Checking & savings" },
+    { color: "#e50914", letter: "N", label: "Netflix", desc: "Monthly subscription" },
+    { color: "#3493fa", letter: "i", label: "iCloud Photos", desc: "14,200 photos" },
+    { color: "#0061ff", letter: "D", label: "Dropbox", desc: "Family documents" },
+    { color: "#34a853", letter: "G", label: "Google Drive", desc: "Shared folders" },
   ];
 
   return (
-    <div className="w-full max-w-[680px] rounded-2xl border border-[color:var(--color-line)] bg-[color:var(--color-surface)] shadow-[var(--shadow-lg)] overflow-hidden">
-      {/* Panel header */}
-      <div className="flex items-center justify-between border-b border-[color:var(--color-line)] px-5 py-4">
-        <div>
-          <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink-4)]">Digital vault</div>
-          <div className="mt-0.5 text-[15px] font-medium text-[color:var(--color-ink)]">Marcus&apos;s digital life</div>
-        </div>
-        <div className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--color-brand-soft)] px-3 py-1.5 text-[11px] font-medium text-[color:var(--color-brand)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-brand)]" />
-          Executor active
+    <div className="relative">
+      {/* Main photo */}
+      <div className="overflow-hidden rounded-3xl border border-[color:var(--color-line)] shadow-[var(--shadow-lg)]">
+        <div className="relative aspect-[4/5]">
+          <Image
+            src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=85&fit=crop"
+            alt="Family together"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/20 via-transparent to-transparent" />
         </div>
       </div>
 
-      {/* Rows */}
-      <ul className="divide-y divide-[color:var(--color-line)]">
-        {items.map((item) => (
-          <li key={item.label} className="flex items-center gap-4 px-5 py-3.5">
-            <span
-              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-[13px] font-bold text-white"
-              style={{ backgroundColor: item.color }}
-            >
-              {item.letter}
-            </span>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between">
-                <span className="text-[13.5px] font-medium text-[color:var(--color-ink)]">{item.label}</span>
-                <span className="text-[12px] text-[color:var(--color-ink-4)]">{item.count}</span>
+      {/* Floating vault card — top left */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.5 }}
+        className="absolute -top-4 -left-4 w-[260px] rounded-2xl border border-[color:var(--color-line)] bg-white/95 p-3 shadow-[var(--shadow-lg)] backdrop-blur-sm sm:-top-6 sm:-left-8 sm:w-[290px]"
+      >
+        <div className="mb-2 flex items-center justify-between px-1">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
+            Digital vault
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-brand-soft)] px-2 py-0.5 text-[10.5px] font-semibold text-[color:var(--color-brand)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-brand)]" />
+            Active
+          </span>
+        </div>
+        <ul className="space-y-1">
+          {services.slice(0, 4).map((s) => (
+            <li key={s.label} className="flex items-center gap-2.5 rounded-xl px-1 py-1.5">
+              <span
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[12px] font-bold text-white"
+                style={{ backgroundColor: s.color }}
+              >
+                {s.letter}
+              </span>
+              <div className="min-w-0">
+                <div className="text-[12.5px] font-medium text-[color:var(--color-ink)]">{s.label}</div>
+                <div className="text-[11px] text-[color:var(--color-ink-4)]">{s.desc}</div>
               </div>
-              <div className="mt-1.5 h-1 rounded-full bg-[color:var(--color-surface-muted)] overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-[color:var(--color-brand)] opacity-40"
-                  style={{ width: `${item.pct}%` }}
-                />
-              </div>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* Floating permissions card — bottom right */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.65 }}
+        className="absolute -bottom-6 -right-4 w-[220px] rounded-2xl border border-[color:var(--color-line)] bg-white/95 p-3.5 shadow-[var(--shadow-lg)] backdrop-blur-sm sm:-bottom-8 sm:-right-6"
+      >
+        <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[color:var(--color-ink-4)]">
+          Executor access
+        </div>
+        <div className="flex items-center gap-2.5 rounded-xl bg-[color:var(--color-surface-muted)] px-2.5 py-2">
+          <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#D6E0DC] text-[12px] font-semibold text-[#1F3A33]">
+            JA
+          </div>
+          <div>
+            <div className="text-[12.5px] font-medium text-[color:var(--color-ink)]">John Anderson</div>
+            <div className="text-[11px] text-[color:var(--color-brand)]">Access granted</div>
+          </div>
+        </div>
+        <div className="mt-2 space-y-1.5 px-0.5">
+          {[
+            { label: "Photos", on: true },
+            { label: "Subscriptions", on: true },
+            { label: "Banking", on: false },
+          ].map((r) => (
+            <div key={r.label} className="flex items-center justify-between">
+              <span className="text-[11.5px] text-[color:var(--color-ink-3)]">{r.label}</span>
+              <span className={`text-[11px] font-medium ${r.on ? "text-[color:var(--color-brand)]" : "text-[color:var(--color-ink-5)]"}`}>
+                {r.on ? "Shared" : "Private"}
+              </span>
             </div>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }

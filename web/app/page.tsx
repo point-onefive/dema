@@ -5,6 +5,7 @@ import { Problem } from "@/components/sections/problem";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Features } from "@/components/sections/features";
 import { Security } from "@/components/sections/security";
+import { Testimonials } from "@/components/sections/social-proof";
 import { PricingTeaser } from "@/components/sections/pricing-teaser";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <HowItWorks />
         <Features />
         <Security />
+        <Testimonials />
         <PricingTeaser />
         <FAQ />
         <FinalCTA />
