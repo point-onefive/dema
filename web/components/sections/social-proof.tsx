@@ -30,7 +30,7 @@ export function Testimonials() {
   return (
     <section className="py-20 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-[600px] text-center">
+        <div className="mx-auto max-w-[920px] text-center">
           <Reveal>
             <p className="text-[11.5px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-ink-4)]">
               Early access members

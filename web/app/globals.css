@@ -74,6 +74,8 @@ body {
   font-family: var(--font-serif);
   letter-spacing: -0.015em;
   font-weight: 400;
+  /* Prevent orphan / widow words in headings. Modern browsers will balance line lengths so headings break gracefully on every screen size. */
+  text-wrap: balance;
 }
 
 .eyebrow {
